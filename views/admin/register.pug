@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    br
+    form(action='javascript:void(0)', id='form')
+        div.container(style='margin:0 auto; max-width: 300px; padding: 10px;')
+            h2(id='register-header') Register
+            div.mdc-text-field.mdc-text-field--outlined.email(style='width:100%')
+                input(type='email', id='email', autocomplete='email', required, name='email', aria-controls='emailVal', aria-describedby='emailVal').mdc-text-field__input
+                div.mdc-notched-outline
+                    div.mdc-notched-outline__leading
+                    div.mdc-notched-outline__notch
+                        label(for='email').mdc-floating-label Email
+                    div.mdc-notched-outline__trailing
+            div.mdc-text-field-helper-line
+                div.mdc-text-field-helper-text.mdc-text-field-helper-text--validation-msg.vemail(aria-hidden=true, id='emailVal')
+                    | Email is invalid.
+            br
+            div.mdc-text-field.mdc-text-field--outlined.username(style='width:100%')
+                input(type='text', id='username', autocomplete='username', required, name='username').mdc-text-field__input
+                div.mdc-notched-outline
+                    div.mdc-notched-outline__leading
+                    div.mdc-notched-outline__notch
+                        label(for='username').mdc-floating-label Username
+                    div.mdc-notched-outline__trailing
+            div.mdc-text-field-helper-line
+                div.mdc-text-field-helper-text.mdc-text-field-helper-text--validation-msg.vusername(aria-hidden=true, id='usernameVal')
+                    | This field is required.
+            br
+            div.mdc-text-field.mdc-text-field--outlined.password(style='width:100%')
+                input(type='password', id='password', autocomplete='new-password', required, name='password').mdc-text-field__input
+                div.mdc-notched-outline
+                    div.mdc-notched-outline__leading
+                    div.mdc-notched-outline__notch
+                        label(for='password').mdc-floating-label Password
+                    div.mdc-notched-outline__trailing
+            div.mdc-text-field-helper-line
+                div.mdc-text-field-helper-text.mdc-text-field-helper-text--validation-msg.vpassword(aria-hidden=true, id='passwordVal')
+                    | This field is required.
+            br
+            div.mdc-text-field.mdc-text-field--outlined.cpassword(style='width:100%')
+                input(type='password', id='confirmPassword', autocomplete='new-password', required, name='password').mdc-text-field__input
+                div.mdc-notched-outline
+                    div.mdc-notched-outline__leading
+                    div.mdc-notched-outline__notch
+                        label(for='confirmPassword').mdc-floating-label Confirm Password
+                    div.mdc-notched-outline__trailing
+            div.mdc-text-field-helper-line
+                div.mdc-text-field-helper-text.mdc-text-field-helper-text--validation-msg.vcpassword(aria-hidden=true, id='confirmPasswordVal')
+                    | This field is required.
+
+            //p(style='color: gray; font-size: 78%;')
+            //    | By signing up, you agree to our
+            //    |
+            //    a(href='/about/terms-and-conditions') terms and conditions
+            //    | .
+            button.mdc-button(onclick='window.location.href=\'/\'', type="button")
+                span.mdc-button__label Cancel
+            button.mdc-button.mdc-button--raised(style='float: right', type="submit")
+                span.mdc-button__label Register
+
+block scripts
+    script(src='/register.js')

@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='theme-color', content='#000000')
+        title #{title} | DreyGuard
+        link(rel='stylesheet', href='/app.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700')
+
+        block head
+    body
+        header.mdc-top-app-bar.app-bar.mdc-elevation--z5.mdc-top-app-bar--fixed(id='app-bar')
+            div.mdc-top-app-bar__row
+                section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
+                    button.material-icons.mdc-top-app-bar__navigation-icon.mdc-icon-button menu
+                    span(style='cursor: default').mdc-top-app-bar__title DreyGuard
+        aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust
+            div.mdc-drawer__content
+                div.mdc-list.nav-list
+                    a(href='/admin', aria-selected=true, id='updates-link').mdc-list-item
+                        i(aria-hidden=true).material-icons.mdc-list-item__graphic policy
+                        span.mdc-list-item__text Updates
+
+        div.mdc-drawer-app-content
+            main.main-content(style="flex: 1", id='main-content')
+                div.mdc-top-app-bar--fixed-adjust.container
+                    block content
+                    br
+                    br
+    script(src='https://code.jquery.com/jquery-3.4.1.min.js', integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
+    script(type="text/javascript", src='/layout.js')
+    block scripts

@@ -1,0 +1,55 @@
+extends layout
+
+block content
+    br
+    form(action='javascript:void(0)', id='form')
+        div.container(style='margin:0 auto; max-width: 300px; padding: 10px;')
+            h2(id='login-header') Login to DreyGuard
+            div.mdc-text-field.mdc-text-field--outlined(style='width:100%', id='mdc-username')
+                input(type='text', id='username', autocomplete='username', required, name='username').mdc-text-field__input
+                div.mdc-notched-outline
+                    div.mdc-notched-outline__leading
+                    div.mdc-notched-outline__notch
+                        label(for='username').mdc-floating-label Username
+                    div.mdc-notched-outline__trailing
+            div.mdc-text-field-helper-line
+                div.mdc-text-field-helper-text.mdc-text-field-helper-text--validation-msg.vusername(aria-hidden=true, id='usernameVal')
+                    | Invalid username
+
+            br
+
+            div.mdc-text-field.mdc-text-field--outlined(style='width:100%', id='mdc-password')
+                input(type='password', id='password', autocomplete='current-password', required, name='password').mdc-text-field__input
+                div.mdc-notched-outline
+                    div.mdc-notched-outline__leading
+                    div.mdc-notched-outline__notch
+                        label(for='password').mdc-floating-label Password
+                    div.mdc-notched-outline__trailing
+            div.mdc-text-field-helper-line
+                div.mdc-text-field-helper-text.mdc-text-field-helper-text--validation-msg.vpassword(aria-hidden=true, id='passwordVal')
+                    | Invalid password
+
+            button.mdc-button(onclick='window.location.href=\'/admin/register\'', type="button")
+                span.mdc-button__label Register
+            button.mdc-button.mdc-button--raised(style='float: right', type="submit", id='login-button')
+                span.mdc-button__label Login
+
+    div.mdc-dialog(role='alertdialog', aria-modal='true', id='login-dialog')
+        div.mdc-dialog__container
+            div.mdc-dialog__surface
+                h2.mdc-dialog__title Logging in...
+                div.mdc-dialog__content
+                    div.mdc-linear-progress
+                        div.mdc-linear-progress__buffering-dots
+                        div.mdc-linear-progress__buffer
+                        div.mdc-linear-progress__bar.mdc-linear-progress__primary-bar
+                            span.mdc-linear-progress__bar-inner
+                        div.mdc-linear-progress__bar.mdc-linear-progress__secondary-bar
+                            span.mdc-linear-progress__bar-inner
+                footer.mdc-dialog__actions
+                    button(type='button', data-mdc-dialog-action="cancel").mdc-button.mdc-dialog__button
+                        span.mdc-button__label Cancel
+        div.mdc-dialog__scrim
+
+block scripts
+    script(src='/login.js')

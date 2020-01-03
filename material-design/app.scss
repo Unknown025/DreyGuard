@@ -1,0 +1,83 @@
+//$mdc-theme-primary: #1e1e53;
+//$mdc-theme-secondary: #121212;
+$mdc-theme-primary: #3f4caf;
+$mdc-theme-secondary: #1e1e53;
+$mdc-theme-background: #101010;
+
+$mdc-theme-on-primary: #ffffff;
+$mdc-theme-on-secondary: #ffffff;
+$mdc-theme-on-surface: #ffffff;
+
+$mdc-theme-surface: #121212;
+
+//$mdc-theme-primary-bg: #181818;
+//$mdc-theme-secondary-bg: #181818;
+
+@import "~@material/top-app-bar/mdc-top-app-bar";
+@import "~@material/icon-button/mdc-icon-button";
+@import "~@material/drawer/mdc-drawer";
+@import "~@material/list/mdc-list";
+@import "~@material/button/mdc-button";
+@import "~@material/textfield/mdc-text-field";
+@import "~@material/textfield/helper-text/mdc-text-field-helper-text";
+@import "~@material/dialog/mdc-dialog";
+@import "~@material/checkbox/mdc-checkbox";
+@import "~@material/data-table/mdc-data-table";
+@import "~@material/fab/mdc-fab";
+@import "~@material/menu-surface/mdc-menu-surface";
+@import "~@material/menu/mdc-menu";
+@import "~@material/select/mdc-select";
+@import "~@material/linear-progress/mdc-linear-progress";
+
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  background-color: $mdc-theme-background;
+  font-family: 'Roboto', Fallback, sans-serif;
+}
+
+.mdc-top-app-bar {
+  background-color: $mdc-theme-secondary;
+}
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+.mdc-top-app-bar {
+  z-index: 7;
+}
+
+#login-header {
+  color: $mdc-theme-on-primary;
+}
+
+#register-header {
+  color: $mdc-theme-on-primary;
+}
+
+#create-update-button {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+#update-dialog-content {
+  text-align: center;
+}
+
+.update-field {
+  margin-bottom: 4%;
+  display: block;
+}
