@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1 Error 401 Unauthorized
+    p= message
+
+block head
+    meta(name="description", content="Unauthorized: You need to be logged in to view this page.")
+
+    script(type='text/javascript')
+        | window.setTimeout(function() {
+        |   window.location.href = '/admin/login?redirect=' + location.pathname;
+        | }, 2000);

@@ -1,7 +1,35 @@
+//doctype html
+//html
+//  head
+//    title= title
+//    link(rel='stylesheet', href='/stylesheets/style.css')
+//  body
+//    block content
+
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+html(lang="en")
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='theme-color', content='#000000')
+        title #{title} | DreyGuard
+        link(rel='stylesheet', href='/app.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700')
+
+        block head
+
+body
+    header.mdc-top-app-bar.app-bar.mdc-elevation--z5.mdc-top-app-bar--fixed(id='app-bar')
+        div.mdc-top-app-bar__row
+            section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
+                span(style='cursor: default').mdc-top-app-bar__title DreyGuard
+
+    div.mdc-drawer-app-content
+        main.main-content(style="flex: 1", id='main-content')
+            div.mdc-top-app-bar--fixed-adjust.container
+                div(style='color: white;')
+                    block content
+                    br
+                    br
+script(src='https://code.jquery.com/jquery-3.4.1.min.js', integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
+block scripts

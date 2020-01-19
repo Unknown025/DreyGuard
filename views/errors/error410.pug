@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h1 Error 410 Gone
+    p= message
+    p
+    | Path:
+    |
+    b #{path}
+
+block head
+    meta(name="description", content="Gone: The page you were looking for has been permanently removed.")

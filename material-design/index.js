@@ -148,7 +148,7 @@ Upload.prototype.doUpload = function (id) {
         cache: false,
         contentType: false,
         processData: false,
-        timeout: 30000
+        timeout: 600000
     });
 };
 

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    div.container(style='margin:0 auto; max-width: 1280px; padding: 10px;')
+    div.container
         button.mdc-fab.mdc-fab--extended(id='create-update-button')
             div.mdc-fab__ripple
             span.material-icons.mdc-fab__icon add
@@ -14,7 +14,7 @@ block content
                             div.mdc-checkbox.mdc-data-table__header-row-checkbox.mdc-checkbox--selected
                                 input(type='checkbox').mdc-checkbox__native-control
                                 div.mdc-checkbox__background
-                                    svg.mdc-checkbox__checkmark(viewbox="0 0 24 24")
+                                    svg.mdc-checkbox__checkmark(viewBox="0 0 24 24")
                                         path.mdc-checkbox__checkmark-path(fill="none", d="M1.73,12.91 8.1,19.28 22.79,4.59")
                                     div.mdc-checkbox__mixedmark
                         th.mdc-data-table__header-cell(scope="col") Name

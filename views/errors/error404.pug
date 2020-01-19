@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h1 Error 404 Not Found
+    p= message
+    p
+    | Path:
+    |
+    b #{path}
+
+block head
+    meta(name="description", content="Not Found: The page you were looking for could not be found.")
