@@ -28,6 +28,7 @@ $mdc-theme-surface: #121212;
 @import "~@material/menu/mdc-menu";
 @import "~@material/select/mdc-select";
 @import "~@material/linear-progress/mdc-linear-progress";
+@import "~@material/snackbar/mdc-snackbar";
 
 body {
   display: flex;
@@ -35,6 +36,14 @@ body {
   margin: 0;
   background-color: $mdc-theme-background;
   font-family: 'Roboto', Fallback, sans-serif;
+}
+
+.mdc-snackbar__surface {
+  background-color: $mdc-theme-surface;
+}
+
+.mdc-snackbar__label {
+  color: $mdc-theme-on-surface;
 }
 
 .mdc-top-app-bar {

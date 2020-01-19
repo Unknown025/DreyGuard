@@ -3,6 +3,7 @@ import {MDCDialog} from '@material/dialog';
 import {MDCSelect} from '@material/select';
 import {MDCTextField} from '@material/textfield';
 import {MDCLinearProgress} from '@material/linear-progress';
+import {MDCSnackbar} from '@material/snackbar';
 
 const dataTable = new MDCDataTable(document.querySelector('.mdc-data-table'));
 const createDialog = new MDCDialog(document.getElementById('create-dialog'));
@@ -12,6 +13,7 @@ const name = new MDCTextField(document.getElementById('name-field-mdc'));
 const version = new MDCTextField(document.getElementById('version-field-mdc'));
 const softwareId = new MDCTextField(document.getElementById('id-field-mdc'));
 const linearProgress = new MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
+const statusSnackbar = new MDCSnackbar(document.getElementById('status-snackbar'));
 
 const createButton = document.getElementById('create-update-button');
 
@@ -31,6 +33,8 @@ createDialog.listen('MDCDialog:closing', (event) => {
             success(result) {
                 const json = JSON.parse(result);
                 addData(json);
+                statusSnackbar.labelText = "Successfully created a new update";
+                statusSnackbar.open();
             },
             error(error) {
                 console.log(error);
@@ -130,10 +134,14 @@ Upload.prototype.doUpload = function (id) {
         },
         success: function (data) {
             downloadDialog.close();
+            statusSnackbar.labelText = `Successfully uploaded file`;
+            statusSnackbar.open();
         },
         error: function (error) {
             downloadDialog.close();
             console.error(error);
+            statusSnackbar.labelText = `Error: ${error.statusText}`;
+            statusSnackbar.open();
         },
         async: true,
         data: formData,

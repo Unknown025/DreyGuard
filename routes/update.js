@@ -19,19 +19,20 @@ router.get('/latest', function (req, res) {
     }
 });
 
-router.get('/darwin/:version/releases', function (req, res) {
-    const latest = getLatestRelease(req.params.platform, req.query.id);
+router.get('/darwin/:arch/:name/releases', function (req, res) {
+    let latest = getLatestRelease(req.params.platform, req.params.arch, req.query.name);
     const clientVersion = req.query.localversion;
 
-    if (!latest) {
-        return res.status(204);
+    if (!latest || latest.length === 0) {
+        return res.status(204).end();
     }
 
     if (clientVersion === latest) {
-        res.status(204).end();
+        return res.status(204).end();
     } else {
+        latest = latest[0];
         res.json({
-            url: `${req.hostname}/releases/win32/${latest}/app.zip`,
+            url: `${req.hostname}/darwin/${req.params.arch}/${req.params.name}/${latest.filename}`,
             pub_date: latest.pubDate.toISOString(),
             notes: latest.notes,
             name: latest.name
@@ -60,8 +61,8 @@ router.get('/win32/:arch/:name/releases', function (req, res) {
     })
 });
 
-router.get('/win32/:arch/:name/:download', function (req, res) {
-    const file = path.resolve('./releases/' + req.params.name + '/win32/' + req.params.arch + '/' + req.params.download);
+router.get('/:platform/:arch/:name/:download', function (req, res) {
+    const file = path.resolve('./releases/' + req.params.name + '/' + req.params.platform + '/' + req.params.arch + '/' + req.params.download);
     // latest.downloads = latest.downloads + 1;
     // Update.updateOne({_id: latest.id}, {$set: latest});
     res.sendFile(file, path.basename(file));
