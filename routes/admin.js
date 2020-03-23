@@ -183,7 +183,10 @@ router.post('/release/:id/file', auth.verifyUser, async function (req, res) {
                 }
                 Update.updateOne({_id: id}, {$set: update}).then(() => {
                     res.status(200).json({}).end();
-                });
+                }).catch((err) => {
+                    res.status(500).json({error: true, message: "An error occurred. " + err});
+                    console.error(err);
+                })
             }
         })
     }
